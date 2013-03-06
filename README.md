@@ -16,7 +16,7 @@ For example see [sample.html](https://github.com/h0x91b/JSTimeoutManager/blob/ma
 ## Usage
 Include js into html
 
-<code><nowiki><script src="https://raw.github.com/h0x91b/JSTimeoutManager/master/timeout-min.js"></nowiki></script></code>
+<code><nowiki>&lt;script src="https://raw.github.com/h0x91b/JSTimeoutManager/master/timeout-min.js">< /script></nowiki></code>
 
 Create on or more timeout managers 
 
