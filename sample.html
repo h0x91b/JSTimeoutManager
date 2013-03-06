@@ -63,6 +63,52 @@
 					log.innerHTML = '<div class="manager3">Manager3 Interval 1 second</div>'+log.innerHTML;
 				},1000,true);
 				
+				
+				
+				//tab blur check for modern browsers
+				function getHiddenProp(){
+					var prefixes = ['webkit','moz','ms','o'];
+
+					// if 'hidden' is natively supported just return it
+					if ('hidden' in window.document) return 'hidden';
+
+					// otherwise loop over all the known prefixes until we find one
+					for (var i = 0; i < prefixes.length; i++){
+						if ((prefixes[i] + 'Hidden') in window.document) 
+							return prefixes[i] + 'Hidden';
+					}
+
+					// otherwise it's not supported
+					return null;
+				}
+
+				function isHidden() {
+					var prop = getHiddenProp();
+					if (!prop) return false;
+
+					return window.document[prop];
+				}
+				
+				var visProp = getHiddenProp();
+				if (!visProp) {
+					console.log('visibility not supported')
+				}
+
+				var evtname = visProp.replace(/[H|h]idden/,'') + 'visibilitychange';
+				document.addEventListener(evtname, function(e){
+					if(isHidden()){
+						Manager1.pause()
+						Manager2.pause()
+						Manager3.pause()
+						log.innerHTML = '<div>Tab blur, pause all timeouts</div>'+log.innerHTML;
+					}
+					else{
+						Manager1.resume()
+						Manager2.resume()
+						Manager3.resume()
+						log.innerHTML = '<div>Tab focus, resume all timeouts</div>'+log.innerHTML;
+					}
+				});
 			</script>
 		</div>
 	</body>

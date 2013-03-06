@@ -4,6 +4,8 @@ JSTimeoutManager
 ## Description
 Minimalistic timeout/interval manager by h0x91b
 
+Ideal for stop all intervals on tab blur (check sample page)
+
 Author: h0x91b (h0x91b@gmail.com Arseniy Pavlenko)
 Date: 2013-03-06 19:50
 Available via the MIT or new BSD license
@@ -14,7 +16,7 @@ For example see [sample.html](https://github.com/h0x91b/JSTimeoutManager/blob/ma
 ## Usage
 Include js into html
 
-<code>&lt;script src="https://raw.github.com/h0x91b/JSTimeoutManager/master/timeout-min.js">&lt;/script></code>
+<code><nowiki><script src="https://raw.github.com/h0x91b/JSTimeoutManager/master/timeout-min.js"></nowiki></script></code>
 
 Create on or more timeout managers 
 
