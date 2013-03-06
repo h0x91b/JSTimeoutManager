@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<title>JSTimeoutManager by h0x91B</title>
+		<script src="timeout-min.js"></script>
+		<style>
+			#log {
+				height: 400px;
+				width: 500px;
+				margin: 0 auto;
+				overflow-y: auto;
+				background-color: #eee;
+			}
+			h1 {
+				text-align: center;
+			}
+			.manager1 {
+				color: blue;
+			}
+			
+			.manager2 {
+				color: red;
+			}
+			
+			.manager3 {
+				color: green;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="wrapper">
+			<h1>Timeout logs:</h1>
+			
+			<input type="button" value="Pause Manager 1" onclick="Manager1.pause()"> <input type="button" value="Resume Manager 1" onclick="Manager1.resume()">
+			
+			<input type="button" value="Pause Manager 2" onclick="Manager2.pause()"> <input type="button" value="Resume Manager 2" onclick="Manager2.resume()">
+			
+			<input type="button" value="Pause Manager 3" onclick="Manager3.pause()"> <input type="button" value="Resume Manager 3" onclick="Manager3.resume()">
+			
+			<div id="log"></div>
+			
+			<script contenteditable="true">
+				Manager1 = new Timeout();
+				Manager2 = new Timeout();
+				Manager3 = new Timeout();
+				
+				var log = document.getElementById('log')
+				
+				Manager1.set(function(){
+					log.innerHTML = '<div class="manager1">Manager1 timeout 1 second</div>'+log.innerHTML;
+				},1000);
+				
+				Manager1.set(function(){
+					log.innerHTML = '<div class="manager1">Manager1 Interval 5 seconds</div>'+log.innerHTML;
+				},5000,true);
+				
+				Manager2.set(function(){
+					log.innerHTML = '<div class="manager2">Manager2 Interval 3 seconds</div>'+log.innerHTML;
+				},3000,true);
+				
+				Manager3.set(function(){
+					log.innerHTML = '<div class="manager3">Manager3 Interval 1 second</div>'+log.innerHTML;
+				},1000,true);
+				
+			</script>
+		</div>
+	</body>
+</html>
