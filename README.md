@@ -13,29 +13,37 @@ For example see [sample.html](https://github.com/h0x91b/JSTimeoutManager/blob/ma
 
 ## Usage
 Include js into html
-<code><script src="https://raw.github.com/h0x91b/JSTimeoutManager/master/timeout-min.js"></script></code>
+
+<code>&lt;script src="https://raw.github.com/h0x91b/JSTimeoutManager/master/timeout-min.js">&lt;/script></code>
 
 Create on or more timeout managers 
+
 <code>var timeout = new Timeout();</code>
-<code>var timeoutMenager = new Timeout();</code>
 
 Set timeout for one second:
+
 <code>var id = timeout.set(function(){ console.log('execute at once after one second') },1000);</code>
 
 Set interval:
+
 <code>id = timeout.set(function(){ console.log('execute every second') },1000,true);</code>
 
 Pause all timeouts/intervals:
+
 <code>timeout.pause(); //pause all timeouts</code>
 
 Pause specific timeout/interval:
+
 <code>timeout.pause(id); //pause timeout with id</code>
 
 Resume all timeouts/intervals:
+
 <code>timeout.resume(); //resume all</code>
 
 Resume specific timeout/interval
+
 <code>timeout.resume(id); //resume timeout with id</code>
 
 Cancel specific timeout/interval
+
 <code>timeout.del(id); //pause and delete timeout by id</code>
